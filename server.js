@@ -4,7 +4,7 @@ var request = require("request");
 var nodeStatusCodes = require('node-status-codes');
 var express = require('express');
 var bodyParser = require('body-parser'); 
-var morgan          = require('morgan');
+var morgan     = require('morgan');
 var app = express(); 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('short'));
@@ -26,10 +26,6 @@ app.post('/', function(req, res){
   var url =  "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + user_name + "&destinations=" + password  + '&key=AIzaSyDH3Y5os8GvSV1IgwOXYvS50PeZbsBAFN8',
     url2 = "https://maps.googleapis.com/maps/api/geocode/json?address=" + user_name + '&key=AIzaSyDH3Y5os8GvSV1IgwOXYvS50PeZbsBAFN8',
     url3 = "https://maps.googleapis.com/maps/api/geocode/json?address="  + password + '&key=AIzaSyDH3Y5os8GvSV1IgwOXYvS50PeZbsBAFN8';
-
-   console.log(" The starting point is "+user_name+" and the ending point is "+password);
-
-     console.log(" latitude= "+lat+" and longitude "+lng);
 
     request({
     url: url,
