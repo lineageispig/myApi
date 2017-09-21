@@ -37,13 +37,12 @@ marker.addListener('click', function() {
 return; 
 }
 })
-
-    
+ 
 var input = document.getElementById('origin-input');
 var input2 = document.getElementById('destination-input');
-    // this is the test code.
-      var address = document.getElementById('origin-input').value;
-     var address2 =  document.getElementById('destination-input').value;   
+ 
+  var address = document.getElementById('origin-input').value;
+  var address2 =  document.getElementById('destination-input').value;   
   
   var autocomplete =  new google.maps.places.Autocomplete(
   input, {placeIdOnly: true}); 
@@ -79,16 +78,10 @@ var input2 = document.getElementById('destination-input');
   }
 })
 })  
-    
-        
-  directionsDisplay.setMap(map); 
-  directionsDisplay.setPanel(document.getElementById('right-panel')); 
-      
-  var onChangeHandler = function() {
+   var onChangeHandler = function() {
    calculateAndDisplayRoute(directionsService, directionsDisplay)
 }; 
           
-  
   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   directionsService.route({
     origin: document.getElementById('origin-input').value,
@@ -97,29 +90,21 @@ var input2 = document.getElementById('destination-input');
 }, function(response, status) {
       if (status == google.maps.GeocoderStatus.OK) {
           
-          directionsDisplay.setDirections(response);
-          
-
+     directionsDisplay.setDirections(response);
      var geocoder = new google.maps.Geocoder();
-             
-
      var address = document.getElementById('origin-input').value;
      var address2 =  document.getElementById('destination-input').value;
     
     getLocation(address);
-  
-
     }
   });
 };
-
-           
+          
 var getLocation =  function(address) {
-  var geocoder = new google.maps.Geocoder();
+var geocoder = new google.maps.Geocoder();
  
   geocoder.geocode( { 'address': address}, function(results, status) {
 
-     
   if (status == google.maps.GeocoderStatus.OK) {
       
        var array =[]; 
@@ -134,13 +119,10 @@ var getLocation =  function(address) {
      console.log(array[0]) 
  
       
-      document.getElementById("demo").value = latitude;  
-      document.getElementById("demo").textContent = latitude
-      
-      
+    document.getElementById("demo").value = latitude;  
+    document.getElementById("demo").textContent = latitude;
     document.getElementById("demo2").value = longitude;  
-    document.getElementById("demo2").textContent = longitude
-//}
+    document.getElementById("demo2").textContent = longitude;
       return latlng
   
       }
@@ -148,87 +130,13 @@ var getLocation =  function(address) {
   }); 
 
 }
-
-
-
-
- 
+// the button control the direction service.
 document.getElementById("myBtn").addEventListener("click", function(){
-    
-
   onChangeHandler();  
-
-    console.log("Hello World"); 
-
 });
-      
-
-var getLocation2 =  function(address2) {
-  var geocoder = new google.maps.Geocoder();
- 
-  geocoder.geocode( { 'address': address}, function(results, status) {
-
-  if (status == google.maps.GeocoderStatus.OK) {
-      var latitude = results[0].geometry.location.lat();
-      var longitude = results[0].geometry.location.lng();
-      var latlng = [latitude,  longitude];
-      console.log(latitude, longitude);
-
-        document.getElementById("button2").textContent = latitude
-    var x = document.getElementById("button2").textContent;
-    document.getElementById("demo2").innerHTML = longitude;  
-   
-
-//}
-      
-      return latlng
-
-      } 
-
-      return latlng
-  }); 
-
-}
-
-// I want the third format that present the distance
-// this is the location of the singal point 
-// all is well 
-// 
-var getLocation2 =  function(address2) {
-  var geocoder = new google.maps.Geocoder();
- 
-  geocoder.geocode( { 'address': address}, function(results, status) {
-
-  if (status == google.maps.GeocoderStatus.OK) {
-      var latitude = results[0].geometry.location.lat();
-      var longitude = results[0].geometry.location.lng();
-      var latlng = [latitude,  longitude];
-      console.log(latitude, longitude);
-
-        document.getElementById("button2").textContent = latitude
-    var x = document.getElementById("button2").textContent;
-    document.getElementById("demo2").innerHTML = longitude;  
-   
-
-//}
-      
-      return latlng
-
-      } 
-
-      return latlng
-  }); 
-
-}
-
-
-
-// I want the forth format that present the time
-
-  getLocation2(address2);
-    
+         
 };  
- 
+ // following control the button to present the json data.
 function mFunction() {
   var address1 = document.getElementById('origin-input').value;
   var address2 = document.getElementById('destination-input').value;
@@ -248,8 +156,7 @@ function EFunction() {
   window.open("https://maps.googleapis.com/maps/api/geocode/json?address="  + address2 + '&key=AIzaSyDH3Y5os8GvSV1IgwOXYvS50PeZbsBAFN8'
 )};
 
-
-
+// following is the ajax that control the button onclick
       $(document).ready(function(){
         var user,pass;
         $("#myBtn").click(function(){
@@ -259,7 +166,7 @@ function EFunction() {
             if(data==='done')
               { 
  
-                alert("login success");
+                consol.log('success')
               }
           });
         });
@@ -274,10 +181,10 @@ function EFunction() {
             if(data==='done')
               { 
 
-                alert("login success");
+                consol.log('success')
               }
           });
         });
       });
 
-// I am sick of that kind of shit 
+
