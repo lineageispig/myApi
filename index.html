@@ -1,0 +1,40 @@
+<html> 
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>The map api challenge</title>
+    <link href="css/style42.css" type="text/css" rel="stylesheet">  
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script type="text/javascript" src="js/map.js"></script>
+   </head>
+<body>
+<div class="container">
+  <div class="collapse navbar-collapse" id="top-navbar-1">          
+     <button onclick="mFunction()">distance of JSON</button> 
+     <button onclick="SFunction()">Starting point of JSON</button> 
+     <button onclick="EFunction()">Ending point of JSON</button> 
+   </div>
+</div> 
+ <!--   <button type="text" value="demo" name="demo" id="demo" > Latitude </button> -->
+  <!--  <button type="text" value="demo2"  name="demo2" id="demo2"> Longtitude </button>  -->
+<div class="col-md-12">      
+  <div class="map1">
+    <h1>Type the starting point, ending point and press enter</h1>    
+    <form id="addressForm" method="get" action="/"> 
+    <input type="text" class="controls" name="address" id="origin-input" placeholder="Enter a starting address" />
+    <input type="text" class="controls" name="address2" id="destination-input" placeholder="Enter an ending address" /> 
+    <button id="myBtn" type="button" value="myBtn"> click to display distance </button> 
+    </form>  
+  </div>
+</div>
+<div id="right-panel">
+</div> 
+<div id="output"></div> 
+<div id="map"></div>
+<div class="result"></div> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS-ue65Jx_HySaXRqnMehRbg67cMCL_xM&libraries=places&callback=initAutocomplete"
+    async defer></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+</html>
